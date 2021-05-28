@@ -6,6 +6,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install gosu
 RUN apt-get -y update && apt-get -y install gosu
 
+# Install dependency packages
+RUN apt-get -y update && apt-get -y install openssh-client
+
 # Make working directory
 ENV WORK_DIR=/work
 RUN mkdir ${WORK_DIR}
