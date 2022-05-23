@@ -3,11 +3,14 @@ FROM mysql:latest
 # Fix frontend not set error
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Update apt packages
+RUN apt-get -y update
+
 # Install gosu
-RUN apt-get -y update && apt-get -y install gosu
+RUN apt-get -y install gosu
 
 # Install dependency packages
-RUN apt-get -y update && apt-get -y install openssh-client
+RUN apt-get -y install openssh-client
 
 # Make working directory
 ENV WORK_DIR=/work
