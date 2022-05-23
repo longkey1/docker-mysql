@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 repo := mysql
-tags := latest 5.6 5.7 8.0
+tags := latest 5.7 8.0
 
 define build_git_branch
 	git checkout master
