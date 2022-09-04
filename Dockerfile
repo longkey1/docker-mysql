@@ -1,4 +1,4 @@
-FROM mysql:latest
+FROM mysql:5.7
 
 # Fix frontend not set error
 ARG DEBIAN_FRONTEND=noninteractive
