@@ -1,14 +1,15 @@
 .DEFAULT_GOAL := help
 
 repo := mysql
-tags := latest 5.7 8.0
+base := debian
+tags := debian 5.7-debian 8.0-debian
 
 define build_git_branch
 	git checkout master
 	git fetch
 	git branch -D $(1) || true
 	git checkout -b $(1)
-	sed -i -e "s@FROM $(repo):latest@FROM $(repo):$(1)@" Dockerfile
+	sed -i -e "s@FROM $(repo):$(base)@FROM $(repo):$(1)@" Dockerfile
 	git commit -am "Change base image to $(repo):$(1)" --allow-empty
 	git push origin $(1) --force-with-lease
 	git checkout master
