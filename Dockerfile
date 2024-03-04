@@ -1,4 +1,4 @@
-FROM mysql:debian
+FROM mysql:5.7-debian
 
 # Fix frontend not set error
 ARG DEBIAN_FRONTEND=noninteractive
